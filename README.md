@@ -11,3 +11,5 @@ $ docker-compose up
 
 http://localhost:3000/
 を開いて動作確認
+
+終了する時は「CTRL+C」で中断

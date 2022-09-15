@@ -1,0 +1,40 @@
+.coin-block {
+	
+	&:after{
+	  content:"";
+	  display:block;
+	  position:absolute;
+	  width: 40%;
+	  aspect-ratio: 0.66;
+	  background-color:yellow;
+	  border:solid 2px black;
+	  border-radius:50%;
+	  bottom:0%;
+	  left:50%;
+	  transform:translate(-50%,0);
+	  opacity:0;
+	}
+
+	&.anim {
+		&:after{
+			animation: coin-anim 0.5s backwards;
+		}
+	}
+}
+
+@keyframes coin-anim {
+	0% {
+		transform:translate(-50%,0);
+	opacity:0;
+	}
+
+	70% {
+		transform:translate(-50%,-200%);
+	opacity:1;
+	}
+
+	100% {
+		transform:translate(-50%,-200%);
+		opacity:1;
+	}
+}

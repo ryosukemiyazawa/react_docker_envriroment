@@ -1,0 +1,62 @@
+$base_size: 6.666666666%;
+
+.game {
+	background-color: lightgray;
+	max-width: 640px;
+	margin: 0 auto;
+	aspect-ratio: calc(640 / 480);
+	position: relative;
+	z-index:0;
+
+	.sky {
+		background-color: #8e83ff;
+		height: $base_size * 13;
+		width: 100%;
+		position: absolute;
+		top:0;
+		left:0;
+		z-index: -1;
+	}
+	.ground {
+		background-color: #956a35;
+		height: $base_size * 2;
+		width: 100%;
+		position: absolute;
+		bottom:0;
+		left: 0;
+		z-index: -1;
+	}
+
+	.block {
+		position: absolute;
+		top: 0;
+		left: 0;
+
+		background-color: #956a35;
+		border: solid 1px black;
+		height: $base_size;
+		aspect-ratio: 1;
+	}
+
+	.block.coin-block {
+		&.empty {
+			background-color: #8a8278;
+		}
+	}
+
+	.player {
+		position: absolute;
+		bottom: $base_size * 2;
+		left: 0;
+		
+		width: $base_size;
+		aspect-ratio: 1;
+	}
+
+	
+}
+
+@import "./_player.scss";
+@import "./_coin_block.scss";
+@import "./_cloud.scss";
+@import "./controller.scss";

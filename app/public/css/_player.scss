@@ -1,0 +1,29 @@
+.game {
+	.player {
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAAAXNSR0IArs4c6QAAAJVJREFUSEvtVVsOwCAIw/sfesYlGsezuOiX+7W0tiArdOArjsaT1De5roiW5I0rNV9wXG1sO3jbCB8X0bLq7rz3Jeo4eHayVSTVbQP8uXzKNhEhcYk0rki0vZd7wh8nHDUK5A1HBmAMHiJiEcJCkUhEFJ2/biyROX/0Ij0egdcIVhrs1mi7i2+KyEnDa7+FUYcQ/N5lFR7GJRoKUO1PAAAAAElFTkSuQmCC");
+
+		animation: player-anim 3s infinite;
+		animation-timing-function: step-end;
+	}
+
+}
+
+@keyframes player-anim {
+	0% {
+		transform: scale(-1, 1);
+	}
+	25% {
+		transform: scale(1, 1);
+	}
+	50% {
+		transform: scale(-1, 1);
+	}
+	75% {
+		transform: scale(1, 1);
+	}
+	100% {
+		transform: scale(-1, 1);
+	}
+}

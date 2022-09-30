@@ -8,9 +8,42 @@ function CoinBlock(props:any) {
 	const left = (x * 5.0) + "%";
 	const top = (y * 6.6666) + "%";
 
-	return (
-		<div className="block coin-block empty" style={{ top: top, left: left }}></div>
-	);
+	//コインの枚数
+	const [coinCount, setCoinCount] = useState(10)
+
+	//アニメーション
+	const [animation, setAnimation] = useState(false);
+	
+	//ブロックをクリックでコインの枚数をへらす
+	const onClickBlock = () => {
+		if(coinCount < 1)return
+
+		//アニメーション中は不可
+		if(animation)return
+
+		setCoinCount(coinCount - 1)
+
+		//アニメーションのStateを実行
+		setAnimation(true);
+		setTimeout(() => {
+			setAnimation(false);
+		}, 600);
+
+		//callbackを呼び出す
+		props.callback();
+	}
+
+	
+
+	if(coinCount < 1){
+		return (
+			<div className="block coin-block empty" style={{ top: top, left: left }}>{coinCount}</div>
+		  );
+	}else{
+		return (
+			<div onClick={ onClickBlock } className={"block coin-block " + (animation ? "anim" : "")} style={{ top: top, left: left }}>{coinCount}</div>
+		);
+	}
 }
 
 export default CoinBlock;

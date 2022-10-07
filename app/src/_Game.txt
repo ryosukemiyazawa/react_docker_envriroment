@@ -1,0 +1,41 @@
+import { useState } from "react";
+import Block from "./components/Block";
+import Cloud from "./components/Cloud";
+import CoinBlock from "./components/CoinBlock";
+import Controller from "./components/Controller";
+import Player from "./components/Player";
+
+function Game() {
+
+	const [position, setPosition] = useState(50);
+
+	const onControllerCallback = (direction:number) => {
+		if(direction > 0){
+			setPosition(position+5);
+		}else{
+			setPosition(position-5);
+		}
+	}
+
+	return (
+		<div className="game">
+			{position}
+
+			<div className="sky">
+				<Cloud top="20" left="10" />
+				<Cloud top="25" left="60" />
+			</div>
+			<div className="ground" />
+
+			<Block x="10" y="4" />
+			<Block x="11" y="4" />
+			<Block x="12" y="4" />
+			<CoinBlock x="13" y="4" />
+		
+			<Player x={position} />
+			<Controller callback={onControllerCallback} />
+		</div>
+	);
+}
+
+export default Game;
